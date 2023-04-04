@@ -20,7 +20,6 @@ public class FunctionsTest extends DriverBase {
 
         homePage.loadHomePage();
         homePage.logIn();
-        logInPage.validUserNameValidPwd();
         functionsPage.pageFunctions();
 
     }
