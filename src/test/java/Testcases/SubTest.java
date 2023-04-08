@@ -21,5 +21,6 @@ public class SubTest extends DriverBase {
         homePage.loadHomePage();
         homePage.logIn();
         subPage.sub();
+        subPage.sub2Page();
     }
 }

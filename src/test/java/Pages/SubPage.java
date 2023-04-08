@@ -8,6 +8,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.util.ArrayList;
+
 public class SubPage extends DriverBase {
     WebDriver driver;
     WebDriverWait wait;
@@ -41,5 +43,12 @@ public class SubPage extends DriverBase {
                 .perform();
         joinBtn.click();
 
+        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs2.get(1));
+        Assert.assertEquals(driver.getCurrentUrl(),"https://cryptofalka.hu/csatlakozz-a-kriptovaluta-kozosseghez-legy-falka-tag-1-honapra/");
+    }
+    public void sub2Page() throws InterruptedException{
+        WebElement postalCode = driver.findElement(postalCodeby);
+        postalCode.sendKeys("4028");
     }
 }
