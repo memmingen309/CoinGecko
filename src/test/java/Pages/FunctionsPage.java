@@ -28,6 +28,7 @@ public class FunctionsPage extends DriverBase {
     By mentoringby = By.xpath("//*[@id=\"top-menu\"]/li[4]/a");
     By aboutby = By.xpath("//*[@id=\"top-menu\"]/li[6]/a");
     By partnerby = By.xpath("//*[@id=\"post-29332\"]/div/div[1]/div/div[3]/div/div[1]/div[3]/a");
+    By joinUsby = By.xpath("//*[@id=\"post-29332\"]/div/div[1]/div/div[4]/div[5]/div[1]/div/a");
 
 
     public FunctionsPage(WebDriver driver, WebDriverWait wait) {
@@ -87,6 +88,12 @@ public class FunctionsPage extends DriverBase {
                 .scrollToElement(partner)
                 .perform();
         partner.click();
+
+        WebElement joinUs = driver.findElement(joinUsby);
+        new Actions(driver)
+                .scrollToElement(joinUs)
+                .perform();
+        joinUs.click();
 
     }
 
