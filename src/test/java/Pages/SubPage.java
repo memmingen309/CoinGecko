@@ -44,13 +44,12 @@ public class SubPage extends DriverBase {
         clickOnPrivateGroup.click();
 
         WebElement joinBtn = driver.findElement(joinby);
-        //Legörgetés az elemhez
+        
         new Actions(driver)
                 .scrollToElement(joinBtn)
                 .perform();
         joinBtn.click();
 
-        //Átváltás a második tab-ra
         ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs2.get(1));
         Assert.assertEquals(driver.getCurrentUrl(),"https://cryptofalka.hu/csatlakozz-a-kriptovaluta-kozosseghez-legy-falka-tag-1-honapra/");
