@@ -8,6 +8,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.util.ArrayList;
+
 public class FunctionsPage extends DriverBase {
     WebDriver driver;
     WebDriverWait wait;
@@ -23,6 +25,9 @@ public class FunctionsPage extends DriverBase {
     By newsby = By.xpath("//*[@id=\"top-menu\"]/li[2]/a");
     By privateGroupby = By.xpath("//*[@id=\"top-menu\"]/li[3]/a");
     By joinby = By.xpath("//*[@id=\"post-289\"]/div/div[1]/div/div[1]/div[2]/div[1]/div[4]/a");
+    By mentoringby = By.xpath("//*[@id=\"top-menu\"]/li[4]/a");
+    By aboutby = By.xpath("//*[@id=\"top-menu\"]/li[6]/a");
+    By partnerby = By.xpath("//*[@id=\"post-29332\"]/div/div[1]/div/div[3]/div/div[1]/div[3]/a");
 
 
     public FunctionsPage(WebDriver driver, WebDriverWait wait) {
@@ -65,6 +70,23 @@ public class FunctionsPage extends DriverBase {
                 .scrollToElement(joinBtn)
                 .perform();
         joinBtn.click();
+
+        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs2.get(1));
+        driver.close();
+        driver.switchTo().window(tabs2.get(0));
+
+        WebElement mentor = driver.findElement(mentoringby);
+        mentor.click();
+
+        WebElement about = driver.findElement(aboutby);
+        about.click();
+
+        WebElement partner = driver.findElement(partnerby);
+        new Actions(driver)
+                .scrollToElement(partner)
+                .perform();
+        partner.click();
 
     }
 
